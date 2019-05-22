@@ -18,7 +18,7 @@ window.onload = function () {
 
         angular.bootstrap(document, ['welcome']);
 
-        if (enabler.autostartEnabled()) {
+        if (bridge.enabled) {
             document.getElementById("autostart").checked = true;
         } else {
             document.getElementById("autostart").checked = false;
@@ -48,7 +48,7 @@ app.controller('WelcomeCtrl', function($scope) {
       }
     };
 
-  $scope.autostart = false;
+  $scope.autostart = bridge.enabled;
 
   $scope.isDE = function(desktop) {
     console.log("does " + bridge.de + " include " + desktop + "?");

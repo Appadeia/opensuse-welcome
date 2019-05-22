@@ -19,6 +19,7 @@ Window {
         bridgeObject.arch = systemInfo.getArch();
         bridgeObject.os = systemInfo.getOS();
         bridgeObject.de = launcher.currentDE();
+        bridgeObject.enabled = enabler.autostartEnabled();
     }
 
     Enabler {
@@ -49,6 +50,7 @@ Window {
         property string arch: ""
         property string os: ""
         property string de: ""
+        property bool enabled: true
 
         WebChannel.id: "bridge"
 
