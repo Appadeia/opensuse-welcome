@@ -15,6 +15,7 @@ public:
     Q_INVOKABLE void enableAutostart();
     Q_INVOKABLE void disableAutostart();
     Q_INVOKABLE bool autostartEnabled();
+    Q_INVOKABLE void toggle();
 private:
     bool fileExists(QString path);
 

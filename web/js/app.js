@@ -7,14 +7,7 @@ var launcher;
 var enabler;
 
 function updateAutoStart() {
-    console.log("yeet");
-    if (enabler.autostartEnabled()) {
-        enabler.disableAutostart();
-        console.log("is disabled");
-    } else {
-        enabler.enableAutostart();
-        console.log("is enabled");
-    }
+    enabler.toggle();
 }
 
 window.onload = function () {
@@ -23,13 +16,14 @@ window.onload = function () {
         launcher = channel.objects.launcher;
         enabler = channel.objects.enabler;
 
+        angular.bootstrap(document, ['welcome']);
+
         if (enabler.autostartEnabled()) {
             document.getElementById("autostart").checked = true;
         } else {
             document.getElementById("autostart").checked = false;
         }
 
-        angular.bootstrap(document, ['welcome']);
         var deHelpElms = document.querySelectorAll(".de-help");
         for (var i = 0; i < deHelpElms.length; i++) {
             var name = deHelpElms[i].getAttribute("data-de");

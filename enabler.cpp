@@ -7,8 +7,8 @@ Enabler::Enabler(QObject *parent) : QObject(parent)
 void Enabler::enableAutostart()
 {
     qDebug() << "enable autostart called";
-    if (fileExists(QDir::homePath() + ".config/autostart/welcome.desktop")) {
-        QFile file(QDir::homePath() + ".config/autostart/welcome.desktop");
+    if (fileExists(QDir::homePath() + "/.config/autostart/welcome.desktop")) {
+        QFile file(QDir::homePath() + "/.config/autostart/welcome.desktop");
 
         file.remove();
 
@@ -21,7 +21,8 @@ void Enabler::enableAutostart()
 void Enabler::disableAutostart()
 {
     qDebug() << "disable autostart called";
-    QFile::copy(":/desktop-file/welcome.desktop", QDir::homePath() + ".config/autostart/welcome.desktop");
+    QFile::copy(":/desktop-file/welcome.desktop", QDir::homePath() + "/.config/autostart/welcome.desktop");
+    qDebug() << QDir::homePath() + "/.config/autostart/welcome.desktop";
 }
 bool Enabler::fileExists(QString path)
 {
@@ -38,11 +39,21 @@ bool Enabler::fileExists(QString path)
 bool Enabler::autostartEnabled()
 {
     qDebug() << "checking if autostart is enabled";
-    if (fileExists(QDir::homePath() + ".config/autostart/welcome.desktop")) {
+    if (fileExists(QDir::homePath() + "/.config/autostart/welcome.desktop")) {
         qDebug() << "there is a file to disable, so it's disabled";
         return false;
     } else {
-        qDebug() << "there isn't a file to disable, so it's not disabled";
+        qDebug() << "there isn't a file to disable, so it's enabled";
         return true;
+    }
+}
+void Enabler::toggle() {
+    qDebug() << "checking if autostart is enabled";
+    if (fileExists(QDir::homePath() + "/.config/autostart/welcome.desktop")) {
+        qDebug() << "there is a file to disable, so it's disabled";
+        enableAutostart();
+    } else {
+        qDebug() << "there isn't a file to disable, so it's enabled";
+        disableAutostart();
     }
 }
