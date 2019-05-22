@@ -23,49 +23,51 @@
     </div>
 </div>
 <div class="container">
-      <h1 id="ahoy-this-is-opensuse">Ahoy, this is openSUSE</h1>
+      <h1 id="ahoy-this-is-opensuse">{{homeTrans.ahoy}}</h1>
 
 <div class="row my-3">
     
     <div class="col-sm-4 btn-showcase my-auto">
-        <h4>Basics</h4>
-            
-            
-            <a class="btn btn-block btn-warning font-weight-bold" href="qrc:///web/readme.html"><i class="fa fa-book"></i> Read Me</a>
-            
-            <a class="btn btn-block btn-info" href="" onclick="bridge.openURL('https://doc.opensuse.org/')"><i class="fa fa-external-link"></i> Documentation</a>
-            
-            <a class="btn btn-block btn-secondary" href="" onclick="bridge.openURL('https://software.opensuse.org/explore')"><i class="fa fa-shopping-bag"></i> Get software</a>
-            
-            
-            
+        <h4>{{homeTrans.basicsHeader}}</h4>
+            <a class="btn btn-block btn-warning font-weight-bold" onclick="bridge.ready = false;" href="qrc:///web/readme.html">
+                <i class="fa fa-book"></i> {{homeTrans.readme}}
+            </a>
+            <a class="btn btn-block btn-info" href="" onclick="bridge.openURL('https://doc.opensuse.org/')">
+                <i class="fa fa-external-link"></i> {{homeTrans.documentation}}
+            </a>
+            <a class="btn btn-block btn-secondary" href="" onclick="bridge.openURL('https://software.opensuse.org/explore')">
+                <i class="fa fa-shopping-bag"></i> {{homeTrans.getsoftware}}
+            </a>
     </div>
     
     <div class="col-sm-4 btn-showcase my-auto">
-        <h4></h4>
-            
-            
-            <img class="w-75 mx-auto d-block" src="qrc:///web/images/sinking.svg" />
-            
+        <img class="w-75 mx-auto d-block" src="qrc:///web/images/sinking.svg" />
     </div>
     
     <div class="col-sm-4 btn-showcase my-auto">
-        <h4>Support</h4>
-            
-            
-            <a class="btn btn-block btn-primary de-help" href="" onclick="launcher.launch('gnome-help')" data-de="gnome" ><i class="fa fa-life-ring"></i> Gnome Help</a>
-            <a class="btn btn-block btn-primary de-help" href="" onclick="launcher.launch('khelpcenter')" data-de="kde" ><i class="fa fa-life-ring"></i> Plasma Help</a>
-            <a class="btn btn-block btn-primary de-help" href="" onclick="launcher.launch('xfce4-about')" data-de="xfce" ><i class="fa fa-life-ring"></i> Xfce Help</a>
-            <a class="btn btn-block btn-primary" href="qrc:///web/contribute.html"><i class="fa fa-hand-o-up"></i> Contribute</a>
-            <a class="btn btn-block btn-success" href="" onclick="bridge.openURL('https://build.opensuse.org/')"><i class="fa fa-github-alt"></i> Build openSUSE</a>
-            
-            
-            
+        <h4>{{homeTrans.supportHeader}}</h4>
+        <a class="btn btn-block btn-primary de-help" href="" onclick="launcher.launch('gnome-help')" data-de="gnome" >
+            <i class="fa fa-life-ring"></i> {{homeTrans.gnomehelp}}
+        </a>
+        <a class="btn btn-block btn-primary de-help" href="" onclick="launcher.launch('khelpcenter')" data-de="kde" >
+            <i class="fa fa-life-ring"></i> {{homeTrans.plasmahelp}}
+        </a>
+        <a class="btn btn-block btn-primary de-help" href="" onclick="launcher.launch('xfce4-about')" data-de="xfce" >
+            <i class="fa fa-life-ring"></i> {{homeTrans.xfcehelp}}
+        </a>
+        <a class="btn btn-block btn-primary" href="qrc:///web/contribute.html">
+            <i class="fa fa-hand-o-up"></i> {{homeTrans.contribute}}
+        </a>
+        <a class="btn btn-block btn-success" href="" onclick="bridge.openURL('https://build.opensuse.org/')">
+            <i class="fa fa-github-alt"></i> {{homeTrans.build}}
+        </a>
     </div>
     
 </div>
 
-<p>If this is your first time using openSUSE, we would like you to feel right at home in your new voyage. Take your time to familiarize yourself with all the buttons and let us know how you like the experience on our <a class="" href="qrc:///web/socials.html">social media</a>.</p>
+<p>
+    {{homeTrans.smParagraph}} <a class="" href="qrc:///web/socials.html">{{homeTrans.smLink}}</a>.
+</p>
 
 
 </div>
@@ -80,12 +82,15 @@
                 <button class="btn btn-sm btn-reddit" onclick="bridge.openURL('https://reddit.com/r/openSUSE')"><i class="fa fa-fw fa-reddit"></i></button>
                 <button class="btn btn-sm btn-facebook" onclick="bridge.openURL('https://facebook.com/en.openSUSE')"><i class="fa fa-fw fa-facebook"></i></button>
                 <button class="btn btn-sm btn-twitter" onclick="bridge.openURL('https://twitter.com/openSUSE')"><i class="fa fa-fw fa-twitter"></i></button>
-                <button class="btn btn-sm btn-google-plus" onclick="bridge.openURL('https://plus.google.com/u/0/+openSUSE')"><i class="fa fa-fw fa-google-plus"></i></button>
             </div>
         </div>
         <div class="d-flex">
-          <checkbox id="autostart" class="btn btn-sm btn-link text-white" ng-checked="bridge.enabled" ng-model="autostart" onclick="updateAutoStart()" lang="en">Show on next startup</checkbox>
-          <button id="close" class="btn btn-sm btn-danger ml-3" onclick="bridge.close()" lang="en"><i class="fa fa-times"></i> Close</button>
+          <checkbox id="autostart" class="btn btn-sm btn-link text-white" ng-checked="bridge.enabled" ng-model="autostart" onclick="updateAutoStart()">
+            {{homeTrans.autostart}}
+          </checkbox>
+          <button id="close" class="btn btn-sm btn-danger ml-3" onclick="bridge.close()" lang="en">
+            <i class="fa fa-times"></i> {{homeTrans.close}}
+          </button>
         </div>
       </div>
   </footer>

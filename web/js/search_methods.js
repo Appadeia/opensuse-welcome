@@ -1,6 +1,4 @@
 var lang = new Lang('en');
-window.lang.dynamic('en', 'app://js/langpack/en.json');
-window.lang.dynamic('pl', 'app://js/langpack/pl.json');
 
 //check if there is a langCookie in the browser
 document.addEventListener("DOMContentLoaded", function(event) { 
@@ -44,7 +42,7 @@ $("#rss-feeds").rss(
 		limit: 1,
 		ssl: true,
 		layoutTemplate: "<div class=\"alert alert-info text-truncate text-center mb-0\" role=\"alert\">{entries}</div>",
-		entryTemplate: '<a href="{url}">{title}</a>'
+        entryTemplate: '<a onclick="bridge.openURL(\'{url}\')" href="">{title}</a>'
 	},
 )
 });

@@ -5,6 +5,7 @@
 var bridge;
 var launcher;
 var enabler;
+var homeTr;
 
 function updateAutoStart() {
     enabler.toggle();
@@ -15,13 +16,16 @@ window.onload = function () {
         bridge = channel.objects.bridge;
         launcher = channel.objects.launcher;
         enabler = channel.objects.enabler;
+        homeTr = channel.objects.homeTr;
 
         angular.bootstrap(document, ['welcome']);
 
-        if (bridge.enabled) {
-            document.getElementById("autostart").checked = true;
-        } else {
-            document.getElementById("autostart").checked = false;
+        if (document.getElementById("autostart") !== null) {
+            if (bridge.enabled) {
+                document.getElementById("autostart").checked = true;
+            } else {
+                document.getElementById("autostart").checked = false;
+            }
         }
 
         var deHelpElms = document.querySelectorAll(".de-help");
@@ -48,6 +52,7 @@ app.controller('WelcomeCtrl', function($scope) {
         live:       true,
       }
     };
+  $scope.homeTrans = homeTr;
 
   $scope.autostart = bridge.enabled;
 
