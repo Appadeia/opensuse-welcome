@@ -53,3 +53,9 @@ body {
 .breadcrumb-item i {
     color: gray;
 }
+.de-help {
+    display: none;
+}
+.de-help.current {
+    display: block;
+}

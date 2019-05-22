@@ -3,11 +3,24 @@
 */
 
 var bridge;
+var launcher;
 
 window.onload = function () {
     new QWebChannel(qt.webChannelTransport, function(channel) {
         bridge = channel.objects.bridge;
+        launcher = channel.objects.launcher;
+        settings = channel.objects.settings;
         angular.bootstrap(document, ['welcome']);
+        var deHelpElms = document.querySelectorAll(".de-help");
+        console.log(deHelpElms);
+        console.log(bridge.de);
+        for (var i = 0; i < deHelpElms.length; i++) {
+            var name = deHelpElms[i].getAttribute("data-de");
+            console.log(name);
+            if (name.toLowerCase().includes(bridge.de.toLowerCase())) {
+                deHelpElms[i].classList.add("current");
+            }
+        }
     });
 }
 
@@ -18,7 +31,7 @@ app.controller('WelcomeCtrl', function($scope) {
       arch:       bridge.arch,
       distribution: {
         codename:   'n/a',
-        desktop:    'n/a',
+        desktop:    bridge.de,
         version:    bridge.os,
         live:       true,
       }
@@ -27,7 +40,8 @@ app.controller('WelcomeCtrl', function($scope) {
   $scope.autostart = false;
 
   $scope.isDE = function(desktop) {
-    return $scope.system.distribution.desktop.toLowerCase() === desktop.toLowerCase();
+    console.log("does " + bridge.de + " include " + desktop + "?");
+    return bridge.de.toLowerCase().includes(desktop.toLowerCase());
   }
 
   $scope.openURI = function(uri) {

@@ -13,7 +13,6 @@
         <file>web/js/jquery.min.js</file>
         <file>web/js/jquery.rss.js</file>
         <file>web/js/search_methods.js</file>
-        <file>web/app.html</file>
         <file>web/contribute.html</file>
         <file>web/home.html</file>
         <file>web/readme.html</file>

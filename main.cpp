@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QtWebEngine/QtWebEngine>
 #include "sysinfo.h"
+#include "launcher.h"
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
@@ -35,6 +36,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     qmlRegisterType<SysInfo>("me.appadeia.SysInfo", 1, 0, "SysInfo");
+    qmlRegisterType<Launcher>("me.appadeia.Launcher", 1, 0, "Launcher");
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
