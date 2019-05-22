@@ -32,6 +32,7 @@ window.onload = function () {
                 deHelpElms[i].classList.add("current");
             }
         }
+        bridge.ready = true;
     });
 }
 

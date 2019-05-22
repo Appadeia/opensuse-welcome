@@ -51,6 +51,7 @@ Window {
         property string os: ""
         property string de: ""
         property bool enabled: true
+        property bool ready: false
 
         WebChannel.id: "bridge"
 
@@ -78,6 +79,7 @@ Window {
         width: parent.width
         anchors.top: parent.top
         color: "#73ba25";
+        opacity: bridgeObject.ready ? 0 : 1
         y: 0
 
         Image {
@@ -87,19 +89,10 @@ Window {
             source: "qrc:///web/images/logo.svg"
         }
 
-        SequentialAnimation {
-            running: true
-            PauseAnimation {
-                duration: 1500
-            }
-
+        Behavior on opacity {
             NumberAnimation {
-                target: splash
-                property: "opacity"
                 duration: 300
-                easing.type: Easing.InOutQuad
-                from: 1
-                to: 0
+                easing: Easing.InOutQuad
             }
         }
     }
