@@ -2,6 +2,7 @@
 Type=Application
 Name=Welcome
 Exec=/usr/bin/opensuse-welcome
+Hidden=true
 Icon=openSUSE-welcome
 Comment=The openSUSE Welcome utility.
 Categories=GTK;GNOME;Application;System;
