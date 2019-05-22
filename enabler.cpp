@@ -4,26 +4,45 @@ Enabler::Enabler(QObject *parent) : QObject(parent)
 {
 
 }
-void Enabler::EnableAutostart()
+void Enabler::enableAutostart()
 {
+    qDebug() << "enable autostart called";
     if (fileExists(QDir::homePath() + ".config/autostart/welcome.desktop")) {
         QFile file(QDir::homePath() + ".config/autostart/welcome.desktop");
 
         file.remove();
+
+        qDebug() << "there was a file, so we removed it";
+        return;
     }
+    qDebug() << "there wasn't a file, so we didn't remove it";
 }
 
-void Enabler::DisableAutostart()
+void Enabler::disableAutostart()
 {
-    QFile::copy("/usr/share/welcome/welcome-disabled.desktop", QDir::homePath() + ".config/autostart/welcome.desktop");
+    qDebug() << "disable autostart called";
+    QFile::copy(":/desktop-file/welcome.desktop", QDir::homePath() + ".config/autostart/welcome.desktop");
 }
-bool fileExists(QString path)
+bool Enabler::fileExists(QString path)
 {
     QFileInfo check_file(path);
 
     if (check_file.exists() && check_file.isFile()) {
+        qDebug() << "file exists";
         return true;
     } else {
+        qDebug() << "file does not exist";
         return false;
+    }
+}
+bool Enabler::autostartEnabled()
+{
+    qDebug() << "checking if autostart is enabled";
+    if (fileExists(QDir::homePath() + ".config/autostart/welcome.desktop")) {
+        qDebug() << "there is a file to disable, so it's disabled";
+        return false;
+    } else {
+        qDebug() << "there isn't a file to disable, so it's not disabled";
+        return true;
     }
 }

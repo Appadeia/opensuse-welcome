@@ -77,5 +77,6 @@
         <file>web/js/chameleon.js</file>
         <file>web/js/chameleon.js.map</file>
         <file>main.cpp</file>
+        <file>desktop-file/welcome.desktop</file>
     </qresource>
 </RCC>

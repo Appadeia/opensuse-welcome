@@ -3,6 +3,7 @@
 #include <QtWebEngine/QtWebEngine>
 #include "sysinfo.h"
 #include "launcher.h"
+#include "enabler.h"
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
@@ -35,8 +36,13 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
+    app.setOrganizationName("openSUSE");
+    app.setOrganizationDomain("opensuse.org");
+    app.setApplicationName("Welcome");
+
     qmlRegisterType<SysInfo>("me.appadeia.SysInfo", 1, 0, "SysInfo");
     qmlRegisterType<Launcher>("me.appadeia.Launcher", 1, 0, "Launcher");
+    qmlRegisterType<Enabler>("me.appadeia.Enabler", 1, 0, "Enabler");
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

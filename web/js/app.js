@@ -4,16 +4,33 @@
 
 var bridge;
 var launcher;
+var enabler;
+
+function updateAutoStart() {
+    console.log("yeet");
+    if (enabler.autostartEnabled()) {
+        enabler.disableAutostart();
+        console.log("is disabled");
+    } else {
+        enabler.enableAutostart();
+        console.log("is enabled");
+    }
+}
 
 window.onload = function () {
     new QWebChannel(qt.webChannelTransport, function(channel) {
         bridge = channel.objects.bridge;
         launcher = channel.objects.launcher;
-        settings = channel.objects.settings;
+        enabler = channel.objects.enabler;
+
+        if (enabler.autostartEnabled()) {
+            document.getElementById("autostart").checked = true;
+        } else {
+            document.getElementById("autostart").checked = false;
+        }
+
         angular.bootstrap(document, ['welcome']);
         var deHelpElms = document.querySelectorAll(".de-help");
-        console.log(deHelpElms);
-        console.log(bridge.de);
         for (var i = 0; i < deHelpElms.length; i++) {
             var name = deHelpElms[i].getAttribute("data-de");
             console.log(name);
@@ -50,10 +67,6 @@ app.controller('WelcomeCtrl', function($scope) {
 
   $scope.command = function(cmd) {
     $scope.emit('command', cmd);
-  };
-
-  $scope.updateAutoStart = function() {
-    $scope.emit('set-autostart', $scope.autostart);
   };
 
   $scope.close = function() {

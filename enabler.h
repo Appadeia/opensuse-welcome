@@ -5,14 +5,16 @@
 #include <QFile>
 #include <QDir>
 #include <QFileInfo>
+#include <QtDebug>
 
 class Enabler : public QObject
 {
     Q_OBJECT
 public:
     explicit Enabler(QObject *parent = nullptr);
-    Q_INVOKABLE void EnableAutostart();
-    Q_INVOKABLE void DisableAutostart();
+    Q_INVOKABLE void enableAutostart();
+    Q_INVOKABLE void disableAutostart();
+    Q_INVOKABLE bool autostartEnabled();
 private:
     bool fileExists(QString path);
 

@@ -5,6 +5,7 @@ import QtWebChannel 1.0
 import Qt.labs.settings 1.0
 import me.appadeia.SysInfo 1.0
 import me.appadeia.Launcher 1.0
+import me.appadeia.Enabler 1.0
 
 Window {
     id: root
@@ -19,11 +20,13 @@ Window {
         bridgeObject.os = systemInfo.getOS();
         bridgeObject.de = launcher.currentDE();
     }
-    Settings {
-        WebChannel.id: "settings"
-        id: settings
-        property bool autostart: true
+
+    Enabler {
+        WebChannel.id: "enabler"
+        id: enabler
     }
+
+    // enabler.disableAutostart, enabler.enableAutostart
 
     maximumHeight: height
     maximumWidth: width
@@ -101,6 +104,6 @@ Window {
 
     WebChannel {
         id: bridge
-        registeredObjects: [bridgeObject, launcher, settings]
+        registeredObjects: [bridgeObject, launcher, enabler]
     }
 }
