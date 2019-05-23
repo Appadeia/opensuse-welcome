@@ -6,3 +6,4 @@ Hidden=true
 Icon=openSUSE-distributor-logo
 Comment=The openSUSE Welcome utility.
 Categories=GTK;GNOME;Application;System;
+GenericName=Welcome Utility
