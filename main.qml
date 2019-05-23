@@ -221,7 +221,40 @@ Window {
         // Footer
         property string close:          qsTr("Close")
     }
+    QtObject {
+        WebChannel.id: "readmeTr"
+        id: readmeTr
 
+        // The breadcrumbs [Home > Read Me]
+        property string readme:         qsTr("Read Me")
+        property string home:           qsTr("Home")
+
+        // Extra Software header
+        property string extras:         qsTr("Extra Software")
+        // Cannot include by default
+        property string cannotInclude:  qsTr("There are certain proprietary drivers (such as Nvidia) and packages (such as Google Chrome) that openSUSE cannot include by default.")
+        // Read this on NVidia
+        property string readThisNvidia: qsTr("If you have an NVidia device and wish to use the proprietary drivers, read this")
+        // Wiki Article [ link at end of previous sentence ]
+        property string wikiArticle:    qsTr("wiki article")
+
+        // Google Chrome paragraph
+        property string chrome:         qsTr("To install Google Chrome, just download it directly from Google. Google provides a repository that will be added to your system when you install Google Chrome. This will allow it to be updated alongside your system.")
+
+        // Packman paragraph part one
+        property string packman:        qsTr("Some codecs for playing media cannot be included in openSUSE due to licensing issues. However, there are repositories available that you can read about")
+        // Link at packman paragraph
+        property string packmanhere:    qsTr("here")
+
+        // Community repos header
+        property string community:      qsTr("Community Repositories")
+
+        // [On] software.opensuse.org, ...
+        property string on:             qsTr("On")
+
+        // On software.opensuse.org, [...]
+        property string mayRun:         qsTr(", you may run across community-provided repositories. While we do not manually vet community repositories, they have built their software against the latest version of openSUSE and should work.")
+    }
     WebEngineView {
         anchors.fill: parent
         url: "web/home.html"
@@ -299,6 +332,6 @@ Window {
 
     WebChannel {
         id: bridge
-        registeredObjects: [bridgeObject, launcher, enabler, homeTr, socialTr, contributeTr, pageIn, pageOut]
+        registeredObjects: [bridgeObject, launcher, enabler, homeTr, socialTr, readmeTr, contributeTr, pageIn, pageOut]
     }
 }

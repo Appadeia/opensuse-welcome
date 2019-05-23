@@ -11,6 +11,7 @@ var pageOut;
 var homeTr;
 var socialTr;
 var conTr;
+var readTr;
 
 function updateAutoStart() {
     enabler.toggle();
@@ -23,6 +24,7 @@ window.onload = function () {
         enabler = channel.objects.enabler;
         homeTr = channel.objects.homeTr;
         socialTr = channel.objects.socialTr;
+        readTr = channel.objects.readmeTr;
         conTr = channel.objects.contributeTr;
         pageIn = channel.objects.pageIn;
         pageOut = channel.objects.pageOut;
@@ -78,6 +80,7 @@ app.controller('WelcomeCtrl', function($scope) {
   $scope.homeTrans = homeTr;
   $scope.socialTrans = socialTr;
   $scope.conTrans = conTr;
+  $scope.readTrans = readTr;
 
   $scope.autostart = bridge.enabled;
 

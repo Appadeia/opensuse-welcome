@@ -59,3 +59,11 @@ body {
 .de-help.current {
     display: block;
 }
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+.alert.alert-info.text-truncate.text-center {
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+}
