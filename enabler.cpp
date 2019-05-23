@@ -57,3 +57,13 @@ void Enabler::toggle() {
         disableAutostart();
     }
 }
+bool Enabler::isLive() {
+    qDebug() << "Checking if we are live";
+    if (fileExists("/usr/bin/liveinst")) {
+        qDebug() << "We are live";
+        return true;
+    } else {
+        qDebug() << "We aren't live";
+        return false;
+    }
+}

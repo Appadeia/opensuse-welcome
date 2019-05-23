@@ -38,6 +38,11 @@ window.onload = function () {
                 document.getElementById("autostart").checked = false;
             }
         }
+        if (document.getElementById("live") !== null) {
+            if (bridge.live) {
+                document.getElementById("live").classList.add("active");
+            }
+        }
 
         var deHelpElms = document.querySelectorAll(".de-help");
         for (var i = 0; i < deHelpElms.length; i++) {
@@ -74,7 +79,7 @@ app.controller('WelcomeCtrl', function($scope) {
         codename:   'n/a',
         desktop:    currentDE(),
         version:    bridge.os,
-        live:       true,
+        live:       enabler.isLive(),
       }
     };
   $scope.homeTrans = homeTr;

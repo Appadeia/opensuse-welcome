@@ -19,6 +19,8 @@ Window {
         bridgeObject.os = systemInfo.getOS();
         bridgeObject.de = launcher.currentDE();
         bridgeObject.enabled = enabler.autostartEnabled();
+        bridgeObject.live = enabler.isLive();
+        console.log(bridgeObject.live);
     }
 
     Enabler {
@@ -50,6 +52,7 @@ Window {
         property string os: ""
         property string de: ""
         property bool enabled: true
+        property bool live: false
         property bool ready: false
         property bool pastFirstPage: false
 
@@ -81,6 +84,9 @@ Window {
         property string readme:                 qsTr("Read me")
         property string documentation:          qsTr("Documentation")
         property string getsoftware:            qsTr("Get Software")
+
+        // Install openSUSE button
+        property string install:                qsTr("Install openSUSE")
 
         // Launchers to DE-provided help programs
         property string gnomehelp:              qsTr("GNOME Help")
