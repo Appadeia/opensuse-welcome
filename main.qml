@@ -1,8 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Window 2.2
-import QtWebEngine 1.8
+import QtWebEngine 1.1
 import QtWebChannel 1.0
-import Qt.labs.settings 1.0
 import me.appadeia.SysInfo 1.0
 import me.appadeia.Launcher 1.0
 import me.appadeia.Enabler 1.0
