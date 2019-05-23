@@ -259,6 +259,9 @@ Window {
 
         // On software.opensuse.org, [...]
         property string mayRun:         qsTr(", you may run across community-provided repositories. While we do not manually vet community repositories, they have built their software against the latest version of openSUSE and should work.")
+
+        // Close button
+        property string close:          qsTr("Close")
     }
     WebEngineView {
         anchors.fill: parent
