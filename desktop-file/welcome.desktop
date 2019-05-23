@@ -5,5 +5,5 @@ Exec=/usr/bin/opensuse-welcome
 Hidden=true
 Icon=openSUSE-distributor-logo
 Comment=The openSUSE Welcome utility.
-Categories=GTK;GNOME;Application;System;
+Categories=Qt;System;Documentation
 GenericName=Welcome Utility
