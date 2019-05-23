@@ -15,47 +15,43 @@
   <div class="sticky-top">
     <div class="breadcrumb py-0 d-flex justify-content-between align-items-center">
         <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item active"><a href="app://home.html"><i class="fa fa-home"> </i>Home</a></li>
-            <li class="breadcrumb-item active">Social Media</li>
+            <li class="breadcrumb-item active"><a onclick="pageIn.restart();" href="qrc:///web/home.html"><i class="fa fa-home"> </i>{{socialTrans.home}}</a></li>
+            <li class="breadcrumb-item active">{{socialTrans.socialMedia}}</li>
         </ol>
     </div>
 </div>
 <div class="container">
-      <h2 id="social-media-how-to-reach-us">Social media. How to reach us!</h2>
+      <h2 id="social-media-how-to-reach-us">{{socialTrans.reachUs}}</h2>
 
-<p>Most commonly used social medias are already listed in the footer, but here are some more you might find useful, alphabetically:</p>
+<p>{{socialTrans.smSubtitle}}</p>
 
-<h3 id="discord">Discord</h3>
+<h3 id="discord">{{socialTrans.smDiscord}}</h3>
 
-<p><a class="btn btn-discord" onclick="bridge.openURL('https://discord.gg/openSUSE')" href=""><i class="fa fa-external-link"> Discord</i></a></p>
+<p><a class="btn btn-discord" onclick="bridge.openURL('https://discord.gg/openSUSE')" href=""><i class="fa fa-external-link"> {{socialTrans.smDiscord}}</i></a></p>
 
-<h3 id="facebook">Facebook</h3>
+<h3 id="facebook">{{socialTrans.smFacebook}}</h3>
 
 <p><a class="btn btn-facebook" onclick="bridge.openURL('https://www.facebook.com/groups/opensuseproject/')" href=""><i class="fa fa-external-link"> Facebook Group</i></a></p>
 
-<h3 id="forums">Forums</h3>
+<h3 id="forums">{{socialTrans.smForums}}</h3>
 
-<p><a class="btn btn-openSUSE" onclick="bridge.openURL('https://forums.opensuse.org')" href=""><i class="fa fa-external-link"> openSUSE Forums</i></a></p>
+<p><a class="btn btn-openSUSE" onclick="bridge.openURL('https://forums.opensuse.org')" href=""><i class="fa fa-external-link"> {{socialTrans.smOpenSuseForums}}</i></a></p>
 
-<h3 id="google">Google+</h3>
+<h3 id="irc">{{socialTrans.smIRC}}</h3>
 
-<p><a class="btn btn-google-plus" onclick="bridge.openURL('https://plus.google.com/u/0/communities/115444043324891769569')" href=""><i class="fa fa-external-link"> Google+ Community</i></a></p>
+<p><a class="btn btn-openSUSE" onclick="bridge.openURL('irc://irc.opensuse.org/#opensuse')" href=""><i class="fa fa-external-link"> {{socialTrans.smIRCTechSupport}}</i></a></p>
 
-<h3 id="irc">IRC</h3>
+<p><a class="btn btn-openSUSE" onclick="bridge.openURL('irc://irc.opensuse.org/#opensuse-project')" href=""><i class="fa fa-external-link"> {{socialTrans.smIRCProject}}</i></a></p>
 
-<p><a class="btn btn-openSUSE" onclick="bridge.openURL('irc://irc.opensuse.org/#opensuse')" href=""><i class="fa fa-external-link"> Tech Support</i></a></p>
+<p><a class="btn btn-openSUSE" onclick="bridge.openURL('irc://irc.opensuse.org/#opensuse-factory')" href=""><i class="fa fa-external-link"> {{socialTrans.smIRCFactory}}</i></a></p>
 
-<p><a class="btn btn-openSUSE" onclick="bridge.openURL('irc://irc.opensuse.org/#opensuse-project')" href=""><i class="fa fa-external-link"> Project</i></a></p>
+<p><a class="btn btn-openSUSE" onclick="bridge.openURL('irc://irc.opensuse.org/#opensuse-chat')" href=""><i class="fa fa-external-link"> {{socialTrans.smIRCChat}}</i></a></p>
 
-<p><a class="btn btn-openSUSE" onclick="bridge.openURL('irc://irc.opensuse.org/#opensuse-factory')" href=""><i class="fa fa-external-link"> Factory</i></a></p>
+<h3 id="telegram">{{socialTrans.smTelegram}}</h3>
 
-<p><a class="btn btn-openSUSE" onclick="bridge.openURL('irc://irc.opensuse.org/#opensuse-chat')" href=""><i class="fa fa-external-link"> Chat</i></a></p>
+<p><a class="btn btn-telegram" onclick="bridge.openURL('https://t.me/openSUSE_group')" href=""><i class="fa fa-external-link"> {{socialTrans.smTelegramOpenSuseGroup}}</i></a></p>
 
-<h3 id="telegram">Telegram</h3>
-
-<p><a class="btn btn-telegram" onclick="bridge.openURL('https://t.me/openSUSE_group')" href=""><i class="fa fa-external-link"> openSUSE Group</i></a></p>
-
-<p><a class="btn btn-telegram" onclick="bridge.openURL('https://t.me/opensusenews')" href=""><i class="fa fa-external-link"> News</i></a></p>
+<p><a class="btn btn-telegram" onclick="bridge.openURL('https://t.me/opensusenews')" href=""><i class="fa fa-external-link"> {{socialTrans.smTelegramOpenSuseNews}}</i></a></p>
 
 
 </div>
@@ -67,22 +63,19 @@
             <div class="btn-group">
     
     <button class="btn btn-sm btn-reddit" onclick="bridge.openURL('https://reddit.com/r/openSUSE')"><i class="fa fa-fw fa-reddit"></i></button>
-    
     <button class="btn btn-sm btn-facebook" onclick="bridge.openURL('https://facebook.com/en.openSUSE')"><i class="fa fa-fw fa-facebook"></i></button>
-    
     <button class="btn btn-sm btn-twitter" onclick="bridge.openURL('https://twitter.com/openSUSE')"><i class="fa fa-fw fa-twitter"></i></button>
-    
-    <button class="btn btn-sm btn-google-plus" onclick="bridge.openURL('https://plus.google.com/u/0/+openSUSE')"><i class="fa fa-fw fa-google-plus"></i></button>
     
 </div>
 
         </div>
         <div class="d-flex">
-          <button id="close" class="btn btn-sm btn-danger ml-3" onclick="bridge.close()" lang="en"><i class="fa fa-times"></i> Close</button>
+          <button id="close" class="btn btn-sm btn-danger ml-3" onclick="bridge.close()" lang="en"><i class="fa fa-times"></i> {{socialTrans.close}}</button>
         </div>
       </div>
   </footer>
   <script src="qrc:///web/js/chameleon.js"></script>
+  <script src="qrc:///web/js/jquery.min.js"></script>
   <script src="qrc:///web/js/jquery-lang.js"></script>
   <script src="qrc:///web/js/jquery.rss.js"></script>
   <script src="qrc:///web/js/search_methods.js"></script>

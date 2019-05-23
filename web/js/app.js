@@ -5,7 +5,12 @@
 var bridge;
 var launcher;
 var enabler;
+var pageIn;
+var pageOut;
+
 var homeTr;
+var socialTr;
+var conTr;
 
 function updateAutoStart() {
     enabler.toggle();
@@ -17,6 +22,10 @@ window.onload = function () {
         launcher = channel.objects.launcher;
         enabler = channel.objects.enabler;
         homeTr = channel.objects.homeTr;
+        socialTr = channel.objects.socialTr;
+        conTr = channel.objects.contributeTr;
+        pageIn = channel.objects.pageIn;
+        pageOut = channel.objects.pageOut;
 
         angular.bootstrap(document, ['welcome']);
 
@@ -31,13 +40,27 @@ window.onload = function () {
         var deHelpElms = document.querySelectorAll(".de-help");
         for (var i = 0; i < deHelpElms.length; i++) {
             var name = deHelpElms[i].getAttribute("data-de");
-            console.log(name);
             if (name.toLowerCase().includes(bridge.de.toLowerCase())) {
-                deHelpElms[i].classList.add("current");
+                if (name.toLowerCase().includes("gnome") && bridge.de.toLowerCase().includes("budgie")) {
+                    continue;
+                } else {
+                    deHelpElms[i].classList.add("current");
+                }
             }
         }
+        if (bridge.pastFirstPage) {
+            pageOut.restart();
+        }
+        bridge.pastFirstPage = true;
         bridge.ready = true;
     });
+}
+function currentDE() {
+    if (bridge.de === null) {
+        return "WM"
+    } else {
+        return bridge.de
+    }
 }
 
 var app = angular.module("welcome", ['lens.bridge', 'lens.ui']);
@@ -47,12 +70,14 @@ app.controller('WelcomeCtrl', function($scope) {
       arch:       bridge.arch,
       distribution: {
         codename:   'n/a',
-        desktop:    bridge.de,
+        desktop:    currentDE(),
         version:    bridge.os,
         live:       true,
       }
     };
   $scope.homeTrans = homeTr;
+  $scope.socialTrans = socialTr;
+  $scope.conTrans = conTr;
 
   $scope.autostart = bridge.enabled;
 
