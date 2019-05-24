@@ -267,6 +267,7 @@ Window {
         anchors.fill: parent
         url: "web/home.html"
         webChannel: bridge
+        property var request;
     }
 
     Rectangle {
@@ -308,7 +309,7 @@ Window {
             NumberAnimation {
                 target: pageTransition
                 property: "y"
-                duration: 150
+                duration: 100
                 from: -508
                 to: 0
                 easing.type: Easing.InOutQuad

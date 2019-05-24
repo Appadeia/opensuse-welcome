@@ -16,7 +16,10 @@ var readTr;
 function updateAutoStart() {
     enabler.toggle();
 }
-
+function delayedClick (URL) {
+    pageIn.restart();
+    setTimeout( function() { window.location = URL }, 50 );
+}
 window.onload = function () {
     new QWebChannel(qt.webChannelTransport, function(channel) {
         bridge = channel.objects.bridge;
