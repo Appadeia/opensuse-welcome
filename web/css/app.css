@@ -73,3 +73,9 @@ body {
 #live.active {
     display: initial;
 }
+a.news-link:not([href]):not([tabindex]) {
+    color: #00a489;
+}
+a.news-link:hover {
+    cursor: pointer;
+}
